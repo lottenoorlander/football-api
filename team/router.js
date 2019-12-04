@@ -11,4 +11,11 @@ router.post("/team", (req, res, next) =>
     .then(team => res.send(team))
     .catch(err => next(err))
 );
+
+router.get("/team/:id", (req, res, next) =>
+  Team.findByPk(req.params.id)
+    .then(teamid => res.send(teamid))
+    .catch(err => next(err))
+);
+
 module.exports = router;
